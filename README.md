@@ -32,12 +32,12 @@ The project follows a client-server architecture with the following components:
 
 6. **Retrieval Augmented Generation (RAG)**: The RAG architecture is employed to efficiently retrieve relevant document chunks from the vector database based on the user's query, and then leverage the LLM to generate a summarized response based on the retrieved information.
 
-<img src='https://github.com/vivalkm/dsp-kb-frontend/blob/master/Design_Diagram.png' title='Design' width='' alt='Design' />
+<img src='https://github.com/vivalkm/dsp_knowledge_base_frontend/blob/master/Design_Diagram.png' title='Design' width='' alt='Design' />
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/vivalkm/dsp-kb-frontend/blob/master/walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/vivalkm/dsp_knowledge_base_frontend/blob/master/walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with LICEcap

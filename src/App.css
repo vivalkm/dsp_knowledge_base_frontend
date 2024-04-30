@@ -1,0 +1,25 @@
+.card:hover {
+    background-color: #caf0f8;
+    transition: 300ms;
+}
+
+.loading {
+    vertical-align: middle;
+}
+
+@keyframes color-change {
+    0% {
+        color: grey;
+    }
+    50% {
+        color: white;
+    }
+
+    100% {
+        color: grey;
+    }
+}
+
+.loading_text {
+    animation: color-change 3s ease-in-out infinite;
+}
