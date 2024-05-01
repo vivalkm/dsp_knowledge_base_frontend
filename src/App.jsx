@@ -59,9 +59,9 @@ function App() {
                 sx={{
                     backgroundColor: "white",
                     boxShadow: "none",
-                    height: "100px", // Adjust height for screens smaller than 600px
+                    height: "100px",
                     "@media (max-width: 600px)": {
-                        height: "90px", // Adjust height for screens smaller than 600px
+                        height: "90px",
                     },
                 }}
             >
@@ -69,6 +69,7 @@ function App() {
                     disableGutters
                     sx={{
                         width: "100%",
+                        marginTop: "15px",
                     }}
                 >
                     <Input handleSearch={handleSearch} isLoading={isLoading} />
@@ -76,14 +77,14 @@ function App() {
                 {/* Conditionally render loading icon */}
                 <Container
                     sx={{
-                        marginY: "auto",
                         position: "absolute",
                         left: "50%",
                         transform: "translateX(-50%)",
+                        marginY: "auto",
                         bottom: "15%",
                     }}
                 >
-                    {!isLoading && (
+                    {isLoading && (
                         <Typography
                             variant="body2"
                             className="loading"
