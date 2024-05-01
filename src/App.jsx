@@ -69,29 +69,14 @@ function App() {
                     disableGutters
                     sx={{
                         width: "100%",
-                        marginTop: "15px",
                     }}
                 >
                     <Input handleSearch={handleSearch} isLoading={isLoading} />
                 </Toolbar>
                 {/* Conditionally render loading icon */}
-                <Container
-                    sx={{
-                        position: "absolute",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        marginY: "auto",
-                        bottom: "15%",
-                    }}
-                >
+                <Container id="loading_container">
                     {isLoading && (
-                        <Typography
-                            variant="body2"
-                            className="loading"
-                            sx={{
-                                textAlign: "center",
-                            }}
-                        >
+                        <Typography variant="body2" className="loading">
                             <CircularDeterminate />
                             <span> </span>
                             <span className="loading loading_text">

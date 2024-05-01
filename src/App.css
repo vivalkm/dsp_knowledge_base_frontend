@@ -5,6 +5,7 @@
 
 .loading {
     vertical-align: middle;
+    text-align: center;
 }
 
 @keyframes color-change {
@@ -22,4 +23,17 @@
 
 .loading_text {
     animation: color-change 3s ease-in-out infinite;
+}
+
+#loading_container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15%;
+}
+
+@media (max-width: 300px) {
+    .loading_text {
+        display: none;
+    }
 }
