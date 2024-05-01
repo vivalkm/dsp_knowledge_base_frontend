@@ -1,5 +1,6 @@
-import { Container, TextField } from "@mui/material";
+import { Container, InputBase, Paper, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Input({ handleSearch, isLoading }) {
     const [userInput, setUserInput] = useState("");
@@ -22,20 +23,32 @@ export default function Input({ handleSearch, isLoading }) {
     };
 
     return (
-        <Container sx={{ width: "100%" }}>
-            <form onSubmit={handleSubmit}>
-                <TextField
+        <Container sx={{ width: "100%", position: "relative" }}>
+            <Paper
+                component="form"
+                sx={{ p: "2px 4px", display: "flex", alignItems: "center" }}
+                onSubmit={handleSubmit}
+            >
+                <SearchIcon sx={{ color: "action.active", mr: 1 }} onClick={handleSubmit} />
+                <InputBase
                     disabled={isLoading}
+                    autoComplete="off"
                     id="filled-basic"
-                    label="Type your question here"
+                    placeholder="Type your question here"
                     sx={{ width: "100%" }}
                     value={userInput}
                     onChange={handleChange}
-                    error={isError}
-                    helperText={isError ? "Question must contains at least 5 letters" : ""}
                 />
-                {/* <button onClick={handleSubmit}>Ask a question</button> */}
-            </form>
+            </Paper>
+            {isError && (
+                <Typography
+                    variant="caption"
+                    color="error"
+                    sx={{ position: "absolute", bottom: "-20px" }}
+                >
+                    Question must be at least 5 characters long.
+                </Typography>
+            )}
         </Container>
     );
 }

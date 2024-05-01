@@ -3,7 +3,7 @@ import Input from "./components/Input";
 import ChatArea from "./components/ChatArea";
 import { AppBar, Container, Grid, Toolbar, Typography } from "@mui/material";
 import Source from "./components/Source";
-import { response as res } from "./mockRes";
+// import { response as res } from "../mockRes";
 import "./App.css";
 import SourceItem from "./components/SourceItem";
 import CircularDeterminate from "./components/CircularDeterminate";
@@ -59,20 +59,31 @@ function App() {
                 sx={{
                     backgroundColor: "white",
                     boxShadow: "none",
+                    height: "100px", // Adjust height for screens smaller than 600px
+                    "@media (max-width: 600px)": {
+                        height: "90px", // Adjust height for screens smaller than 600px
+                    },
                 }}
             >
                 <Toolbar
                     disableGutters
                     sx={{
                         width: "100%",
-                        marginTop: "15px",
                     }}
                 >
                     <Input handleSearch={handleSearch} isLoading={isLoading} />
                 </Toolbar>
                 {/* Conditionally render loading icon */}
-                <Container sx={{ marginBottom: "30px", marginTop: "10px" }}>
-                    {isLoading && (
+                <Container
+                    sx={{
+                        marginY: "auto",
+                        position: "absolute",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        bottom: "15%",
+                    }}
+                >
+                    {!isLoading && (
                         <Typography
                             variant="body2"
                             className="loading"
