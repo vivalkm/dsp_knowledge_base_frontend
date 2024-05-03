@@ -1,7 +1,14 @@
 import crypto from "crypto-js";
 import moment from "moment";
 
-export default function getSignedHeaders(credentials, region, host, path, queryStr, axiosConfig = null) {
+export default function getSignedHeaders(
+    credentials,
+    region,
+    host,
+    path,
+    queryStr,
+    axiosConfig = null
+) {
     // Task 1: Create a canonical request for Signature Version 4
     // Arrange the contents of your request (host, action, headers, etc.) into a standard (canonical) format. The canonical request is one of the inputs used to create a string to sign.
     const t = moment().utc();
@@ -10,7 +17,14 @@ export default function getSignedHeaders(credentials, region, host, path, queryS
     const amzDate = t.format("YYYYMMDDTHHmmss") + "Z";
     const httpRequestMethod = axiosConfig?.method ? axiosConfig.method.toUpperCase() : "GET";
     const canonicalURI = path;
-    const canonicalQueryString = queryStr;
+
+    // encodeURIComponent does not encode chars: !*()'
+    const canonicalQueryString = queryStr
+        .replace(/'/g, "%27")
+        .replace(/!/g, "%21")
+        .replace(/\*/g, "%2A")
+        .replace(/\(/g, "%28")
+        .replace(/\)/g, "%29");
     const canonicalHeaders = "host:" + host + "\n" + "x-amz-date:" + amzDate + "\n";
     const signedHeaders = "host;x-amz-date";
     const payload = axiosConfig?.data ? JSON.stringify(axiosConfig?.data) : "";

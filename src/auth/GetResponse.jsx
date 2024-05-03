@@ -14,6 +14,7 @@ export default async function getResponse(question) {
         path: import.meta.env.VITE_BACKEND_APIPATH,
     };
 
+    
     const headers = getSignedHeaders(
         credentials,
         region,
@@ -39,11 +40,11 @@ export default async function getResponse(question) {
 // use my header generater deployed on vercel
 // export default async function getResponse(question) {
 //     const headerAPI = import.meta.env.VITE_HEADER_API;
-    // const apiUrl = {
-    //     hostname: import.meta.env.VITE_BACKEND_HOSTNAME,
-    //     url: import.meta.env.VITE_BACKEND_URL,
-    //     path: import.meta.env.VITE_BACKEND_APIPATH,
-    // };
+// const apiUrl = {
+//     hostname: import.meta.env.VITE_BACKEND_HOSTNAME,
+//     url: import.meta.env.VITE_BACKEND_URL,
+//     path: import.meta.env.VITE_BACKEND_APIPATH,
+// };
 
 //     const headers = await axios.get(`${headerAPI}${encodeURIComponent(question)}`);
 
